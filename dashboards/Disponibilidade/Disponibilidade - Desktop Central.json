@@ -1,0 +1,2199 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 7,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "datasource": "Zabbix",
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "mappings": [
+              {
+                "options": {
+                  "0": {
+                    "text": "OK"
+                  }
+                },
+                "type": "value"
+              },
+              {
+                "options": {
+                  "from": 1,
+                  "result": {
+                    "text": "FALHA"
+                  },
+                  "to": 999
+                },
+                "type": "range"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 1
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 0,
+          "y": 0
+        },
+        "id": 2,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "area",
+          "justifyMode": "center",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.3",
+        "targets": [
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Failed step of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Status Geral",
+        "type": "stat"
+      },
+      {
+        "datasource": null,
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "mappings": [],
+            "max": 100,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "red",
+                  "value": null
+                },
+                {
+                  "color": "yellow",
+                  "value": 80
+                },
+                {
+                  "color": "green",
+                  "value": 90
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 4,
+          "x": 4,
+          "y": 0
+        },
+        "id": 13,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true,
+          "text": {}
+        },
+        "pluginVersion": "8.2.3",
+        "targets": [
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "hide": false,
+            "host": {
+              "filter": "APP Server"
+            },
+            "itServiceFilter": "Desktop Central",
+            "item": {
+              "filter": "Failed step of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "acknowledged": 2,
+              "hostProxy": false,
+              "hostsInMaintenance": false,
+              "limit": 1001,
+              "minSeverity": 0,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "sortProblems": "default"
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 1,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "showProblems": "recent",
+            "slaInterval": "none",
+            "slaProperty": {
+              "name": "SLA",
+              "property": "sla"
+            },
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 2
+            }
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "SLA",
+        "type": "gauge"
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 5,
+          "w": 16,
+          "x": 8,
+          "y": 0
+        },
+        "id": 15,
+        "options": {
+          "content": "   ",
+          "mode": "markdown"
+        },
+        "pluginVersion": "8.2.3",
+        "targets": [
+          {
+            "application": {
+              "filter": ""
+            },
+            "functions": [],
+            "group": {
+              "filter": ""
+            },
+            "host": {
+              "filter": ""
+            },
+            "item": {
+              "filter": ""
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "type": "text"
+      },
+      {
+        "datasource": null,
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "mappings": [],
+            "max": 0.2,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "#EAB839",
+                  "value": 0.15
+                },
+                {
+                  "color": "red",
+                  "value": 0.2
+                }
+              ]
+            },
+            "unit": "clocks"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 0,
+          "y": 5
+        },
+        "id": 8,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "vertical",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "8.2.3",
+        "targets": [
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:49",
+                "def": {
+                  "category": "Aggregate",
+                  "defaultParams": [
+                    "1m"
+                  ],
+                  "name": "min",
+                  "params": [
+                    {
+                      "name": "interval",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "1y"
+                ],
+                "text": "min(1y)"
+              },
+              {
+                "$$hashKey": "object:50",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Mínima"
+                ],
+                "text": "setAlias(Mínima)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Desktop Central - Home\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:72",
+                "def": {
+                  "category": "Aggregate",
+                  "defaultParams": [
+                    "1m"
+                  ],
+                  "name": "max",
+                  "params": [
+                    {
+                      "name": "interval",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "1y"
+                ],
+                "text": "max(1y)"
+              },
+              {
+                "$$hashKey": "object:73",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Máxima"
+                ],
+                "text": "setAlias(Máxima)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Desktop Central - Home\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "B",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:105",
+                "def": {
+                  "category": "Aggregate",
+                  "defaultParams": [
+                    "1m"
+                  ],
+                  "name": "average",
+                  "params": [
+                    {
+                      "name": "interval",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "1y"
+                ],
+                "text": "average(1y)"
+              },
+              {
+                "$$hashKey": "object:106",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Média"
+                ],
+                "text": "setAlias(Média)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Desktop Central - Home\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "C",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:128",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Atual"
+                ],
+                "text": "setAlias(Atual)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Desktop Central - Home\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "D",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Variação do Tempo de Resposta - Passo 1",
+        "type": "bargauge"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "mappings": [],
+            "max": 0.2,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "#EAB839",
+                  "value": 0.15
+                },
+                {
+                  "color": "red",
+                  "value": 0.2
+                }
+              ]
+            },
+            "unit": "clocks"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 6,
+          "y": 5
+        },
+        "id": 9,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "vertical",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "8.2.3",
+        "targets": [
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:173",
+                "def": {
+                  "category": "Aggregate",
+                  "defaultParams": [
+                    "1m"
+                  ],
+                  "name": "min",
+                  "params": [
+                    {
+                      "name": "interval",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "1y"
+                ],
+                "text": "min(1y)"
+              },
+              {
+                "$$hashKey": "object:174",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Mínima"
+                ],
+                "text": "setAlias(Mínima)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Desktop Central - SAML Redirect\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:196",
+                "def": {
+                  "category": "Aggregate",
+                  "defaultParams": [
+                    "1m"
+                  ],
+                  "name": "max",
+                  "params": [
+                    {
+                      "name": "interval",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "1y"
+                ],
+                "text": "max(1y)"
+              },
+              {
+                "$$hashKey": "object:197",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Máxima"
+                ],
+                "text": "setAlias(Máxima)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Desktop Central - SAML Redirect\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "B",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:219",
+                "def": {
+                  "category": "Aggregate",
+                  "defaultParams": [
+                    "1m"
+                  ],
+                  "name": "average",
+                  "params": [
+                    {
+                      "name": "interval",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "1y"
+                ],
+                "text": "average(1y)"
+              },
+              {
+                "$$hashKey": "object:220",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Média"
+                ],
+                "text": "setAlias(Média)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Desktop Central - SAML Redirect\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "C",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:242",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Atual"
+                ],
+                "text": "setAlias(Atual)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Desktop Central - SAML Redirect\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "D",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Variação do Tempo de Resposta - Passo 2",
+        "type": "bargauge"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "decimals": 0,
+            "mappings": [],
+            "max": 0.2,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "#EAB839",
+                  "value": 0.15
+                },
+                {
+                  "color": "red",
+                  "value": 0.2
+                }
+              ]
+            },
+            "unit": "clocks"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 12,
+          "y": 5
+        },
+        "id": 10,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "vertical",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "8.2.3",
+        "targets": [
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:287",
+                "def": {
+                  "category": "Aggregate",
+                  "defaultParams": [
+                    "1m"
+                  ],
+                  "name": "min",
+                  "params": [
+                    {
+                      "name": "interval",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "1y"
+                ],
+                "text": "min(1y)"
+              },
+              {
+                "$$hashKey": "object:288",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Mínima"
+                ],
+                "text": "setAlias(Mínima)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Post Login Form\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:310",
+                "def": {
+                  "category": "Aggregate",
+                  "defaultParams": [
+                    "1m"
+                  ],
+                  "name": "max",
+                  "params": [
+                    {
+                      "name": "interval",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "1y"
+                ],
+                "text": "max(1y)"
+              },
+              {
+                "$$hashKey": "object:311",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Máxima"
+                ],
+                "text": "setAlias(Máxima)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Post Login Form\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "B",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:333",
+                "def": {
+                  "category": "Aggregate",
+                  "defaultParams": [
+                    "1m"
+                  ],
+                  "name": "average",
+                  "params": [
+                    {
+                      "name": "interval",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "1y"
+                ],
+                "text": "average(1y)"
+              },
+              {
+                "$$hashKey": "object:334",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Média"
+                ],
+                "text": "setAlias(Média)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Post Login Form\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "C",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:356",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Atual"
+                ],
+                "text": "setAlias(Atual)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Post Login Form\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "D",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Variação do Tempo de Resposta - Passo 3",
+        "type": "bargauge"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "mappings": [],
+            "max": 0.2,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "#EAB839",
+                  "value": 0.15
+                },
+                {
+                  "color": "red",
+                  "value": 0.2
+                }
+              ]
+            },
+            "unit": "clocks"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 18,
+          "y": 5
+        },
+        "id": 11,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "vertical",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "8.2.3",
+        "targets": [
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:401",
+                "def": {
+                  "category": "Aggregate",
+                  "defaultParams": [
+                    "1m"
+                  ],
+                  "name": "min",
+                  "params": [
+                    {
+                      "name": "interval",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "1y"
+                ],
+                "text": "min(1y)"
+              },
+              {
+                "$$hashKey": "object:402",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Mínima"
+                ],
+                "text": "setAlias(Mínima)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Redirect to SAML Login\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:424",
+                "def": {
+                  "category": "Aggregate",
+                  "defaultParams": [
+                    "1m"
+                  ],
+                  "name": "max",
+                  "params": [
+                    {
+                      "name": "interval",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "4d"
+                ],
+                "text": "max(4d)"
+              },
+              {
+                "$$hashKey": "object:425",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Máxima"
+                ],
+                "text": "setAlias(Máxima)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Redirect to SAML Login\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "B",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:447",
+                "def": {
+                  "category": "Aggregate",
+                  "defaultParams": [
+                    "1m"
+                  ],
+                  "name": "average",
+                  "params": [
+                    {
+                      "name": "interval",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "1y"
+                ],
+                "text": "average(1y)"
+              },
+              {
+                "$$hashKey": "object:448",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Média"
+                ],
+                "text": "setAlias(Média)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Redirect to SAML Login\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "C",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:470",
+                "def": {
+                  "category": "Alias",
+                  "defaultParams": [],
+                  "name": "setAlias",
+                  "params": [
+                    {
+                      "name": "alias",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "params": [
+                  "Atual"
+                ],
+                "text": "setAlias(Atual)"
+              }
+            ],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "APP Server"
+            },
+            "item": {
+              "filter": "Response time for step \"Redirect to SAML Login\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "D",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Variação do Tempo de Resposta - Passo 4",
+        "type": "bargauge"
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": null,
+        "description": "",
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 10,
+          "w": 12,
+          "x": 0,
+          "y": 10
+        },
+        "hiddenSeries": false,
+        "id": 4,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "8.2.3",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "/.*/"
+            },
+            "item": {
+              "filter": "Download speed for step \"Desktop Central - Home\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "/.*/"
+            },
+            "item": {
+              "filter": "Download speed for step \"Desktop Central - SAML Redirect\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "C",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "/.*/"
+            },
+            "item": {
+              "filter": "Download speed for step \"Post Login Form\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "B",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "/.*/"
+            },
+            "item": {
+              "filter": "Download speed for step \"Redirect to SAML Login\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "D",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Histórico de Transferência",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": null,
+        "description": "",
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 10,
+          "w": 12,
+          "x": 12,
+          "y": 10
+        },
+        "hiddenSeries": false,
+        "id": 5,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null as zero",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "8.2.3",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "/.*/"
+            },
+            "item": {
+              "filter": "Response time for step \"Desktop Central - Home\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "/.*/"
+            },
+            "item": {
+              "filter": "Response time for step \"Desktop Central - SAML Redirect\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "C",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "/.*/"
+            },
+            "item": {
+              "filter": "Response time for step \"Post Login Form\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "B",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          },
+          {
+            "application": {
+              "filter": "Desktop Central"
+            },
+            "functions": [],
+            "group": {
+              "filter": "Linux servers"
+            },
+            "host": {
+              "filter": "/.*/"
+            },
+            "item": {
+              "filter": "Response time for step \"Redirect to SAML Login\" of scenario \"Desktop Central\"."
+            },
+            "options": {
+              "showDisabledItems": false,
+              "skipEmptyValues": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "D",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Histórico do Tempo de Resposta ",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      }
+    ],
+    "refresh": false,
+    "schemaVersion": 31,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Disponibilidade - Desktop Central",
+    "uid": "7VxYBGLGz",
+    "version": 18
+  }

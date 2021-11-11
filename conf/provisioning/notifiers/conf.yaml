@@ -1,0 +1,11 @@
+apiVersion: 1
+
+notifiers:
+  - name: Teams
+    type: teams
+    is_default: true
+    org_name: Main Org.
+    uid: notifier1
+    settings:
+      uploadImage: true
+      url: https://cherokeenetbr.webhook.office.com/webhookb2/19d9bcfd-0040-4821-9eb1-6912aa91c4e5@a47bb6bd-ad61-40fc-bbcb-623fdc323c97/IncomingWebhook/bcefebf324324e749f1b6aa0f22eacda/852d629b-d865-4384-965c-b9351d3b40e0
