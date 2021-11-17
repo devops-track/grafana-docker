@@ -45,3 +45,12 @@ providers:
   updateIntervalSeconds: 10
   options:
     path: /var/lib/grafana/dashboards/SOC
+
+- name: 'DevOps'
+  orgId: 1
+  folder: 'DevOps'
+  type: file
+  editable: true
+  updateIntervalSeconds: 10
+  options:
+    path: /var/lib/grafana/dashboards/DevOps

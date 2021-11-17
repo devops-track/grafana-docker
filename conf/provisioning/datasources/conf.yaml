@@ -39,3 +39,10 @@ datasources:
         disableDataAlignment: false
     version: 1
     editable: false
+
+  - name: Prometheus
+    type: prometheus
+    httpMethod: POST
+    url: http://host.docker.internal:9090
+    jsonData:
+      timeInterval: 10s

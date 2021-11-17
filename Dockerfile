@@ -11,5 +11,7 @@ COPY ./dashboards/DEV01 /var/lib/grafana/dashboards/DEV01
 COPY ./dashboards/Livelo /var/lib/grafana/dashboards/Livelo
 COPY ./dashboards/SOC /var/lib/grafana/dashboards/SOC
 COPY ./dashboards/Geral /var/lib/grafana/dashboards/Geral
+COPY ./dashboards/DevOps /var/lib/grafana/dashboards/DevOps
+
 
 EXPOSE 3000
