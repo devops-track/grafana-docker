@@ -1,13 +1,22 @@
 version: "3"
 
+networks:
+  test-network:
+    internal: true
+
 services:
  grafana:
     image: gr:latest
     environment:
-      - GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app,grafana-worldmap-panel,smartmakers-trafficlight-panel,flant-statusmap-panel,vonage-status-panel,corpglory-progresslist-panel,ryantxu-ajax-panel,ddurieux-glpi-app,grafana-clock-panel
+      - GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app 3.12.4,grafana-worldmap-panel,smartmakers-trafficlight-panel,flant-statusmap-panel,vonage-status-panel,corpglory-progresslist-panel,ryantxu-ajax-panel,ddurieux-glpi-app,grafana-clock-panel
       - GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=alexanderzobnin-zabbix-app
     ports:
       - "3000:3000"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    networks:
+      - test-network
+      - default
 
  prometheus:
     image: prom/prometheus
@@ -15,3 +24,33 @@ services:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - 9090:9090
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    networks:
+      - test-network
+      - default
+
+node-exporter:
+    image: prom/node-exporter
+    ports:
+      - 9100:9100
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    networks:
+      - test-network
+      - default
+
+cadvisor:
+    image: google/cadvisor:latest
+    ports:
+      - 8080:8080
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    networks:
+      - test-network
+      - default
+    extra_hosts:
+      - host.docker.internal:host-gateway
