@@ -74,9 +74,4 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /cgroup:/sys/fs/cgroup:ro
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    networks:
-      - test-network
-      - default
-    extra_hosts:
-      - host.docker.internal:host-gateway
     restart: always
