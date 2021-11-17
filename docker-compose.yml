@@ -29,19 +29,21 @@ services:
     networks:
       - test-network
       - default
-
-node-exporter:
+    depends_on:
+      - cadvisor
+ node-exporter:
     image: prom/node-exporter
     ports:
-      - 9100:9100
+      - 9100
     extra_hosts:
       - host.docker.internal:host-gateway
     networks:
       - test-network
       - default
 
-cadvisor:
+ cadvisor:
     image: google/cadvisor:latest
+    container_name: cadvisor
     ports:
       - 8080:8080
     volumes:
