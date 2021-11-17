@@ -9,7 +9,7 @@ services:
     image: gr:latest
     container_name: grafana
     environment:
-      - GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app 3.12.4,grafana-worldmap-panel,smartmakers-trafficlight-panel,flant-statusmap-panel,vonage-status-panel,corpglory-progresslist-panel,ryantxu-ajax-panel,ddurieux-glpi-app,grafana-clock-panel
+      - GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app,grafana-worldmap-panel,smartmakers-trafficlight-panel,flant-statusmap-panel,vonage-status-panel,corpglory-progresslist-panel,ryantxu-ajax-panel,ddurieux-glpi-app,grafana-clock-panel
       - GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=alexanderzobnin-zabbix-app
     ports:
       - "3000:3000"
