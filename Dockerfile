@@ -4,7 +4,8 @@ ADD conf/provisioning/datasources/conf.yaml /etc/grafana/provisioning/datasource
 ADD conf/provisioning/dashboards/conf.yaml /etc/grafana/provisioning/dashboards
 ADD conf/provisioning/notifiers/conf.yaml /etc/grafana/provisioning/notifiers
 ADD conf/provisioning/plugins/conf.yaml /etc/grafana/provisioning/plugins
-
+ADD conf/provisioning/grafana.ini /etc/grafana/
+ADD conf/provisioning/ldap.toml /etc/grafana/
 
 COPY ./dashboards/Disponibilidade /var/lib/grafana/dashboards/Disponibilidade
 COPY ./dashboards/DEV01 /var/lib/grafana/dashboards/DEV01
