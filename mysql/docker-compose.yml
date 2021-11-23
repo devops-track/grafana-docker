@@ -9,7 +9,7 @@ services:
     image: prom/mysqld-exporter:latest
     container_name: dbmysqld_exporter
     environment:
-      - DATA_SOURCE_NAME='grafana_exporter:2xD*avipY-_y8OOBRJlZpAZ@(10.101.0.10:3306)/'
+      - DATA_SOURCE_NAME=grafana_exporter:2xD*avipY-_y8OOBRJlZpAZ@(10.101.0.10:3306)/
       - collect.info_schema.tablestats=true
       - collect.info_schema.userstats=true
       - collect.info_schema.query_response_time=true
