@@ -72,7 +72,6 @@ services:
       - /var/lib/docker:/var/lib/docker:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /cgroup:/sys/fs/cgroup:ro
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
       - /dev/disk/:/dev/disk:ro
     networks:
       - test-network
