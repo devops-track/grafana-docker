@@ -6,7 +6,7 @@ networks:
 
 services:
  grafana:
-    image: gr:latest
+    build: ./
     container_name: grafana
     environment:
       - GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app,grafana-worldmap-panel,smartmakers-trafficlight-panel,flant-statusmap-panel,vonage-status-panel,corpglory-progresslist-panel,ryantxu-ajax-panel,ddurieux-glpi-app,grafana-clock-panel
