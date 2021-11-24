@@ -1,4 +1,20 @@
-FROM grafana/grafana:latest 
+FROM robertasolimandonofreo/debian_cherokee:latest 
+
+ENV                 GRAFANA_VERSION=8.2.5
+
+ENV                 GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app,grafana-worldmap-panel,smartmakers-trafficlight-panel,flant-statusmap-panel,vonage-status-panel,corpglory-progresslist-panel,ryantxu-ajax-panel,ddurieux-glpi-app,grafana-clock-panel
+ENV                 GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=alexanderzobnin-zabbix-app
+WORKDIR /root
+
+RUN apt-get -y update \
+    && apt-get -y dist-upgrade \
+    && apt-get -y --force-yes install \
+    && wget https://dl.grafana.com/oss/release/grafana_${GRAFANA_VERSION}_amd64.deb \
+    && dpkg -i grafana_${GRAFANA_VERSION}_amd64.deb \
+    && rm grafana_${GRAFANA_VERSION}_amd64.deb \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 
 ADD conf/provisioning/datasources/conf.yaml /etc/grafana/provisioning/datasources
 ADD conf/provisioning/dashboards/conf.yaml /etc/grafana/provisioning/dashboards
