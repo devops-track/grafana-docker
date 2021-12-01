@@ -45,3 +45,12 @@ datasources:
     url: http://host.docker.internal:9090
     jsonData:
       timeInterval: 10s
+
+  - name: InfluxDB
+    type: influxdb
+    access: proxy
+    database: prometheus
+    user: admin
+    url: http://10.101.0.21:8086
+    secureJsonData:
+      password: Ob9jupho
