@@ -6,13 +6,14 @@ networks:
 
 services:
  cloudflare:
-    image: lablabs/cloudflare_exporter:latest
+    image: osig/prometheus-cloudflare-exporter:1.2.0
     container_name: cloudflare_exporter
     environment:
-      - CF_API_TOKEN=xTmdAwKuaESFvIU83ic7wZy_bmXP8MBulk-nPhjW
-      - CF_ZONES=cherokee.com.br,cherokee.net.br,cherokeesolutions.com.br,cherokeesecurity.com.br
+      - ZONE=cherokee.com.br,cherokee.net.br,cherokeesolutions.com.br,cherokeesecurity.com.br
+      - AUTH_KEY=1f777f3e7f53d44493880354e6059a09d1893
+      - AUTH_EMAIL=ulisses.donato@cherokee.com.br
     ports:
-      - "8080:8080"
+      - "9199:9199"
     networks:
       - test-network
       - default

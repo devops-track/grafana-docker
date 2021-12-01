@@ -88,3 +88,15 @@ scrape_configs:
       target_label: instance
     - target_label: __address__
       replacement: 10.101.0.21:9115
+  - job_name: 'unbound-exporter'
+    static_configs:
+      - targets: ['10.101.0.21:9167']
+  - job_name: 'cloudflare-exporter'
+    static_configs:
+      - targets: ['10.101.0.21:9199']
+  - job_name: 'azure-exporter'
+    static_configs:
+      - targets: ['10.101.0.21:9276']
+  - job_name: 'keycloak-exporter'
+    static_configs:
+      - targets: ['10.101.0.21:8085']
