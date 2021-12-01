@@ -6,11 +6,12 @@ networks:
 
 services:
  unbound:
-    build: ./
+    image: egguy/unbound-prometheus-exporter:latest
     container_name: unbound_exporter
     ports:
       - "9167:9167"
     networks:
-      - test-network
-      - default
+      - host
     restart: always
+    volumes:
+      - /etc/unbound/:/etc/unbound/
