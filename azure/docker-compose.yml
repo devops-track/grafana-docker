@@ -1,0 +1,18 @@
+version: "3"
+
+networks:
+  test-network:
+    internal: true
+
+services:
+ azure:
+    build: ./
+    container_name: azure_exporter
+    ports:
+      - "9276:9276"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    networks:
+      - test-network
+      - default
+    restart: always

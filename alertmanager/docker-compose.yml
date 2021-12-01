@@ -1,0 +1,23 @@
+version: "3"
+
+networks:
+  test-network:
+    internal: true
+
+services:
+
+ alertmanager:
+    build: ./
+    container_name: alertmanager
+    restart: unless-stopped
+    ports:
+      - "9093:9093"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    networks:
+      - test-network
+      - default
+
+volumes:
+
+  alertmanager-data:

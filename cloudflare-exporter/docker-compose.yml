@@ -1,0 +1,19 @@
+version: "3"
+
+networks:
+  test-network:
+    internal: true
+
+services:
+ cloudflare:
+    image: lablabs/cloudflare_exporter:latest
+    container_name: cloudflare_exporter
+    environment:
+      - CF_API_TOKEN=xTmdAwKuaESFvIU83ic7wZy_bmXP8MBulk-nPhjW
+      - CF_ZONES=cherokee.com.br,cherokee.net.br,cherokeesolutions.com.br,cherokeesecurity.com.br
+    ports:
+      - "8080:8080"
+    networks:
+      - test-network
+      - default
+    restart: always

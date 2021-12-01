@@ -1,24 +1,12 @@
-FROM golang:1.12 as builder
-WORKDIR /azure-health-exporter/
-COPY . .
-RUN make getpromu test build
+FROM golang:1.16-alpine
+RUN apk --no-cache add --update git make 
+RUN git clone https://github.com/FXinnovation/azure-health-exporter.git
 
-FROM ubuntu:18.04
-COPY --from=builder /azure-health-exporter/azure-health-exporter /azure-health-exporter
-ADD ./resources /resources
-RUN /resources/build && rm -rf /resources
-USER ahe
+WORKDIR /go/azure-health-exporter
+RUN make build \
+    &&  ./azure-health-exporter
 EXPOSE 9613
-WORKDIR /opt/azure-health-exporter
-ENTRYPOINT  [ "/opt/azure-health-exporter/azure-health-exporter" ]
-
-LABEL maintainer="FXinnovation CloudToolDevelopment <CloudToolDevelopment@fxinnovation.com>" \
-      "org.label-schema.name"="azure-health-exporter" \
-      "org.label-schema.base-image.name"="docker.io/library/ubuntu" \
-      "org.label-schema.base-image.version"="18.04" \
-      "org.label-schema.description"="azure-health-exporter in a container" \
-      "org.label-schema.url"="https://github.com/FXinnovation/azure-health-exporter" \
-      "org.label-schema.vcs-url"="https://github.com/FXinnovation/azure-health-exporter" \
-      "org.label-schema.vendor"="FXinnovation" \
-      "org.label-schema.schema-version"="1.0.0-rc.1" \
-      "org.label-schema.usage"="Please see README.md"
+ENV AZURE_SUBSCRIPTION_ID=9ad70610-7927-49aa-b3af-2f4c1cc64699
+ENV AZURE_TENANT_ID=a47bb6bd-ad61-40fc-bbcb-623fdc323c97
+ENV AZURE_CLIENT_ID=8cb59d88-19aa-4827-bc91-35df15fc1460
+ENV AZURE_CLIENT_SECRET=TJ~7Q~2sFuckmb.Rdi.gCJyvM9f4~28INbQbU

@@ -1,0 +1,18 @@
+version: "3"
+
+networks:
+  test-network:
+    internal: true
+
+services:
+ unbound:
+    build: ./
+    container_name: unbound_exporter
+    ports:
+      - "9167:9167"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    networks:
+      - test-network
+      - default
+    restart: always

@@ -1,0 +1,37 @@
+active_directory_authority_url: "https://login.microsoftonline.com/"
+resource_manager_url: "https://management.azure.com/"
+credentials:
+  subscription_id: 9ad70610-7927-49aa-b3af-2f4c1cc64699
+  client_id: 8cb59d88-19aa-4827-bc91-35df15fc1460
+  client_secret: TJ~7Q~2sFuckmb.Rdi.gCJyvM9f4~28INbQbU
+  tenant_id: a47bb6bd-ad61-40fc-bbcb-623fdc323c97
+
+targets:
+
+  - resource: "/resourceGroups/blog-group/providers/Microsoft.Web/sites/blog"
+    metrics:
+      - name: "BytesReceived"
+      - name: "BytesSent"
+  - resource: "/resourceGroups/app-group/providers/Microsoft.Web/sites/app"
+    metrics:
+      - name: "Http2xx"
+      - name: "Http5xx"
+  - resource: "/resourceGroups/vm-group/providers/Microsoft.Compute/virtualMachines/vm"
+    metric_namespace: "Azure.VM.Windows.GuestMetrics"
+    metrics:
+    - name: 'Process\Thread Count'
+
+resource_groups:
+  - resource_group: "cherokee"
+    resource_types:
+      - "Microsoft.Compute/virtualMachines"
+    metrics:
+      - name: "CPU Credits consumed"
+      - name: "Percentage CPU"
+      - name: "Network In Total"
+      - name: "Network Out Total"
+      - name: "Disk Read Bytes"
+      - name: "Disk Write Bytes"
+      - name: "Disk Read Operations/Sec"
+      - name: "Disk Write Operations/Sec"
+      - name: "CPU Credits Remaining"

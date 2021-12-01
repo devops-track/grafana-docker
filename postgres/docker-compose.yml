@@ -11,6 +11,8 @@ configs:
 services:
   postgres-exporter:
     image: wrouesnel/postgres_exporter:latest
+    ports:
+      - 9187:9187
     configs:
       - source: postgres_exporter_config
         target: /etc/postgres_exporter/queries.yaml
@@ -18,7 +20,7 @@ services:
       mode: replicated
       replicas: 1
     environment:
-      - DATA_SOURCE_NAME=postgresql://postgres@pgserver94.example.com:5432/postgres?sslmode=disable
+      - DATA_SOURCE_NAME=postgresql://zabbix:Password!@10.101.0.10:5432/postgres?sslmode=disable
       - PG_EXPORTER_EXTEND_QUERY_PATH=/etc/postgres_exporter/queries.yaml
     networks:
       - test-network
