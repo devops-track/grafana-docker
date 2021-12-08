@@ -1,9 +1,7 @@
-FROM jboss/keycloak:10.0.2
+FROM busybox:musl
 
-ADD https://github.com/aerogear/keycloak-metrics-spi/releases/download/2.0.1/keycloak-metrics-spi-2.0.1.jar \
-    /opt/jboss/keycloak/providers/keycloak-metrics-spi-2.0.1.jar
+ARG REPOSITORY=aerogear/keycloak-metrics-spi
+ARG VERSION=1.0.4
 
-USER root
-RUN chown -R jboss:root /opt/jboss/keycloak/providers/ &&\
-    chmod +x /opt/jboss/keycloak/providers/keycloak-metrics-spi-2.0.1.jar
-USER jboss
+ADD https://github.com/$REPOSITORY/releases/download/$VERSION/keycloak-metrics-spi-$VERSION.jar \
+		/local/keycloak-metrics-spi.jar

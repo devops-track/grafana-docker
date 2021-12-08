@@ -54,3 +54,12 @@ datasources:
     url: http://10.101.0.21:8086
     secureJsonData:
       password: Ob9jupho
+
+  - name: Telegraf
+    type: influxdb
+    access: proxy
+    database: telegraf
+    user: telegraf
+    url: http://10.101.0.21:8086
+    secureJsonData:
+      password: telegraf

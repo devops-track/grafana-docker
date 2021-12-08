@@ -1,0 +1,12 @@
+Current Docker Space:
+TYPE TOTAL ACTIVE SIZE RECLAIMABLE Images 12 10 1.766GB 1.004GB (56%) Containers 21 19 2.294kB 0B (0%) Local Volumes 59 0 1.592GB 1.592GB (100%) Build Cache 43 0 14.27MB 14.27MB
+#####################################################################
+Finding images
+#####################################################################
+Listing images that needs to be cleaned up
+c87875ff6180 7b2ac941d4c3 e08abd2be730 8e60ea3644d6 184ef4d127b4 8c2c38aa676e 99f89471f470 0f8457a4c2ec 296a6d5035e2 0369cf4303ff
+#####################################################################
+Cleaning images
+#####################################################################
+Current Docker Space, after clean up:
+TYPE TOTAL ACTIVE SIZE RECLAIMABLE Images 12 10 1.766GB 1.004GB (56%) Containers 21 19 2.294kB 0B (0%) Local Volumes 59 0 1.592GB 1.592GB (100%) Build Cache 43 0 14.27MB 14.27MB

@@ -3,11 +3,12 @@ global:
   scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
   evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
   # scrape_timeout is set to the global default (10s).
+
 remote_write:
-  - url: "http://10.101.0.21:8086/api/v1/prom/write?db=prometheus"
+  - url: "http://10.101.0.21:8086/api/v1/prom/write?db=prometheus&u=admin&p=Ob9jupho"
 
 remote_read:
-  - url: "http://10.101.0.21:8086/api/v1/prom/read?db=prometheus"
+  - url: "http://10.101.0.21:8086/api/v1/prom/read?db=prometheus&u=admin&p=Ob9jupho"
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
   # - "first_rules.yml"

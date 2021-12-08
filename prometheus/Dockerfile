@@ -15,7 +15,7 @@ RUN adduser -s /bin/false -D -H prometheus \
 VOLUME /etc/prometheus
 VOLUME /var/lib/prometheus
 ADD prometheus.yml /etc/prometheus/
-ADD alert.rules /etc/prometheus/
+ADD rules.yml /etc/prometheus/
 
 
 ENTRYPOINT /usr/local/bin/prometheus \ 
