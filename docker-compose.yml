@@ -19,7 +19,6 @@ services:
       - test-network
       - default
     restart: always
-
  prometheus:
     build: ./prometheus
     container_name: prometheus

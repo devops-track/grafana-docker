@@ -1,0 +1,49 @@
+pipeline {
+environment {
+registry = "robertasolimandonofreo/grafana"
+registryCredential = 'dockerhub'
+dockerImage = ''
+}
+agent any
+stages {
+stage('Cloning our Git') {
+steps {
+git 'https://github.com/robertasolimandonofreo/grafana-docker.git'
+}
+}
+stage('Building our image') {
+steps{
+script {
+dockerImage = docker.build registry + ":$BUILD_NUMBER"
+}
+}
+}
+stage('Deploy our image') {
+steps{
+script {
+docker.withRegistry( '', registryCredential ) {
+dockerImage.push()
+}
+}
+}
+}
+stage('Cleaning up') {
+steps{
+sh "docker rmi $registry:$BUILD_NUMBER"
+}
+}
+stage('Deploy') {
+steps{
+    dir("/dados1/docker-config/grafana/grafana-docker") {
+    sh "deploy.sh"
+}
+    
+}
+}
+stage('Publish Influx') {
+steps{
+influxDbPublisher customPrefix: '', customProjectName: '', jenkinsEnvParameterField: '', jenkinsEnvParameterTag: '', selectedTarget: 'Influxdb'
+}
+}
+}
+}
