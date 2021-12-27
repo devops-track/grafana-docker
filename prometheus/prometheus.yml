@@ -4,11 +4,11 @@ global:
   evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
   # scrape_timeout is set to the global default (10s).
 
-remote_write:
-  - url: "http://10.101.0.21:8086/api/v1/prom/write?db=prometheus&u=admin&p=Ob9jupho"
+#remote_write:
+  #- url: "http://10.101.0.21:8086/api/v1/prom/write?db=prometheus&u=admin&p=Ob9jupho"
 
-remote_read:
-  - url: "http://10.101.0.21:8086/api/v1/prom/read?db=prometheus&u=admin&p=Ob9jupho"
+#remote_read:
+  #- url: "http://10.101.0.21:8086/api/v1/prom/read?db=prometheus&u=admin&p=Ob9jupho"
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
   # - "first_rules.yml"
@@ -105,7 +105,7 @@ scrape_configs:
   - job_name: 'keycloak-exporter'
     static_configs:
       - targets: ['10.101.0.21:8085']
-  - job_name: ‘jenkins’
+  - job_name: 'jenkins'
     metrics_path: /prometheus
     static_configs:
-      - targets: [‘10.101.0.21:9999’]
+      - targets: ['10.101.0.21:9999']
