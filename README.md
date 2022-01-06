@@ -21,9 +21,4 @@ Para executar todos os serviços é apenas seguir os seguintes comandos:
 ``` docker-compose up --build ```
 
 # Logins
-## Grafana
-- admin
-- Ob9jupho
-## InfluxDB
-- telegraf
-- telegraf
+Senhas e usuários estão no arquivo .env.
