@@ -2,43 +2,6 @@
 apiVersion: 1
 
 datasources:
-  - name: PostgreSQL
-    type: postgres
-    url: 10.101.0.10
-    database: zabbix
-    user: zabbix
-    secureJsonData:
-      password: 'Password!'
-    jsonData:
-      sslmode: 'disable'
-      postgresVersion: 12
-      timescaledb: true
-
-  - name: SOC DB
-    type: postgres
-    url: 10.101.0.10:5432
-    database: soc
-    user: soc_user
-    secureJsonData:
-      password: 'Password!'
-    jsonData:
-      sslmode: 'disable'
-      postgresVersion: 12
-      timescaledb: true
-
-  - name: Zabbix
-    type: alexanderzobnin-zabbix-datasource
-    url: http://10.101.0.21/api_jsonrpc.php
-    isDefault: true
-    jsonData:
-        username: grafana
-        password: Ob9jupho
-        trends: false
-        cacheTTL: "1m"
-        disableReadOnlyUsersAck: true
-        disableDataAlignment: false
-    version: 1
-
   - name: Prometheus
     type: prometheus
     httpMethod: POST
@@ -46,20 +9,11 @@ datasources:
     jsonData:
       timeInterval: 10s
 
-  - name: InfluxDB
-    type: influxdb
-    access: proxy
-    database: cherokee
-    user: cherokee
-    url: http://10.101.0.21:4086
-    secureJsonData:
-      password: Ob9jupho
-
   - name: Telegraf
     type: influxdb
     access: proxy
-    database: cherokee
-    user: cherokee
-    url: http://10.101.0.21:4086
+    database: telegraf
+    user: telegraf
+    url: http://influxdb:8086
     secureJsonData:
-      password: Ob9jupho
+      password: telegraf

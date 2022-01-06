@@ -1,9 +1,8 @@
 version: "3"
 
 networks:
-  test-network:
+  monitoring:
     internal: true
-
 services:
  grafana:
     build: ./
@@ -12,13 +11,14 @@ services:
       - GF_INSTALL_PLUGINS=btplc-trend-box-panel,alexanderzobnin-zabbix-app,grafana-worldmap-panel,smartmakers-trafficlight-panel,flant-statusmap-panel,vonage-status-panel,corpglory-progresslist-panel,ryantxu-ajax-panel,ddurieux-glpi-app,grafana-clock-panel,grafana-piechart-panel
       - GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=alexanderzobnin-zabbix-app
     ports:
-      - "3008:3000"
+      - "3000:3000"
     extra_hosts:
       - host.docker.internal:host-gateway
     networks:
-      - test-network
+      - monitoring
       - default
     restart: always
+
  prometheus:
     build: ./prometheus
     container_name: prometheus
@@ -27,7 +27,7 @@ services:
     extra_hosts:
       - host.docker.internal:host-gateway
     networks:
-      - test-network
+      - monitoring
       - default
     depends_on:
       - cadvisor
@@ -50,7 +50,7 @@ services:
     extra_hosts:
       - host.docker.internal:host-gateway
     networks:
-      - test-network
+      - monitoring
       - default
     restart: always
 
@@ -71,20 +71,96 @@ services:
       - /cgroup:/sys/fs/cgroup:ro
       - /dev/disk/:/dev/disk:ro
     networks:
-      - test-network
+      - monitoring
       - default
     extra_hosts:
       - host.docker.internal:host-gateway
     restart: always
 
  black-exporter:
-    build: ./black-exporter
+    image: prom/blackbox-exporter:latest
     container_name: black-exporter
     ports:
       - 9115:9115
     extra_hosts:
       - host.docker.internal:host-gateway
     networks:
-      - test-network
+      - monitoring
       - default
     restart: always
+ mysql:
+    image: mysql:latest
+    container_name: mysql
+    restart: always
+    environment: 
+      - MYSQL_ROOT_PASSWORD=admin
+    command: --default-authentication-plugin=mysql_native_password
+    ports: 
+      - 3306:3306
+    networks:
+      - monitoring
+      - default
+    extra_hosts:
+      - host.docker.internal:host-gateway
+ mysql-exporter:
+    image: prom/mysqld-exporter
+    container_name: mysql-exporter
+    ports:
+      - 9104:9104
+    environment: 
+      - DATA_SOURCE_NAME=exporter:admin@(localhost:3306)/
+      - collect.info_schema.tablestats=true
+      - collect.info_schema.userstats=true
+      - collect.info_schema.query_response_time=true
+      - collect.auto_increment.columns=true
+      - collect.binlog_size=true
+      - collect.perf_schema.eventsstatements=true
+      - collect.perf_schema.eventswaits=true
+      - collect.perf_schema.file_events=true
+      - collect.perf_schema.indexiowaits=true
+      - collect.perf_schema.tableiowaits=true
+      - collect.perf_schema.tablelocks=true
+    networks:
+      - monitoring
+      - default
+    restart: always
+    extra_hosts:
+      - host.docker.internal:host-gateway
+ influx:
+    image: influxdb:1.8
+    container_name: influxdb
+    hostname: influx
+    ports:
+      - "8086:8086/tcp"
+    environment:
+      - INFLUXDB_DB=telegraf
+      - INFLUXDB_USER=telegraf
+      - INFLUXDB_ADMIN_USER=telegraf
+      - INFLUXDB_ADMIN_ENABLED=true
+      - INFLUXDB_ADMIN_PASSWORD=telegraf
+    networks:
+      - monitoring
+      - default
+    restart: always
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    volumes:
+      - "./influx/etc/influxdb:/etc/influxdb"
+      - "./influx/var/lib/influxdb:/var/lib/influxdb"
+ telegraf:
+    container_name: telegraf
+    image: telegraf:latest
+    networks:
+      - monitoring
+      - default
+    volumes:
+      - ./telegraf.conf:/etc/telegraf/telegraf.conf
+      - //var/run/docker.sock:/var/run/docker.sock
+      - /sys:/rootfs/sys:ro
+      - /proc:/rootfs/proc:ro
+      - /etc:/rootfs/etc:ro
+    restart: always
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    links: 
+      - influx:influxdb

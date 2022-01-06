@@ -1,23 +1,16 @@
-# my global config
 global:
-  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
-  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
-  # scrape_timeout is set to the global default (10s).
+  scrape_interval:     15s 
+  evaluation_interval: 15s 
 
 #remote_write:
-  #- url: "http://10.101.0.21:8086/api/v1/prom/write?db=prometheus&u=admin&p=Ob9jupho"
+  #- url: "http://localhost:8086/api/v1/prom/write?db=prometheus&u=admin&p=Ob9jupho"
 
 #remote_read:
-  #- url: "http://10.101.0.21:8086/api/v1/prom/read?db=prometheus&u=admin&p=Ob9jupho"
-# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+  #- url: "http://localhost:8086/api/v1/prom/read?db=prometheus&u=admin&p=Ob9jupho"
 rule_files:
   # - "first_rules.yml"
   # - "second_rules.yml"
-
-# A scrape configuration containing exactly one endpoint to scrape:
-# Here it's Prometheus itself.
 scrape_configs:
-  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'prometheus'
     static_configs:
     - targets: ['localhost:9090']
@@ -43,12 +36,9 @@ scrape_configs:
       - targets: ['host.docker.internal:3000']
   - job_name: 'mysql-exporter'
     static_configs:
-      - targets: ['10.101.0.21:9104']
+      - targets: ['host.docker.internal:9104']
         labels:
-          instance: '10.101.0.10'
-  - job_name: 'postgres_exporter'
-    static_configs:
-      - targets: ['10.101.0.21:9187']
+          instance: 'app01'
   - job_name: blackbox_http
     metrics_path: /probe
     params:
@@ -61,19 +51,13 @@ scrape_configs:
     - source_labels:
       - __param_target
       target_label: instance
-    - replacement: 10.101.0.21:9115	
+    - replacement: host.docker.internal:9115	
       target_label: __address__
     static_configs:
     - targets:
-      - http://10.101.0.21:9090/
       - http://node-exporter:9100/metrics
-      - http://10.101.0.21:9104/metrics
       - http://host.docker.internal:3000/metrics
       - http://cadvisor:8080/metrics
-      - http://10.101.0.21:9000/
-      - http://10.101.0.21:3012/
-      - http://10.101.0.21:1808/
-      - http://10.101.0.21:1809/
   - job_name: blackbox_https
     scrape_timeout: 15s
     scrape_interval: 15s
@@ -82,30 +66,11 @@ scrape_configs:
       module: [http_2xx]
     static_configs:
     - targets:
-      - https://www.cherokee.com.br/
-      - https://dash.cherokee.com.br/
-      - https://suporte.cherokee.com.br/
-      - https://mon.cherokeesolutions.com.br/
+      - https://www.google.com.br
     relabel_configs:
     - source_labels: [__address__]
       target_label: __param_target
     - source_labels: [__param_target]
       target_label: instance
     - target_label: __address__
-      replacement: 10.101.0.21:9115
-  - job_name: 'unbound-exporter'
-    static_configs:
-      - targets: ['10.101.0.21:9167']
-  - job_name: 'cloudflare-exporter'
-    static_configs:
-      - targets: ['10.101.0.21:9199']
-  - job_name: 'azure-exporter'
-    static_configs:
-      - targets: ['10.101.0.21:9276']
-  - job_name: 'keycloak-exporter'
-    static_configs:
-      - targets: ['10.101.0.21:8085']
-  - job_name: 'jenkins'
-    metrics_path: /prometheus
-    static_configs:
-      - targets: ['10.101.0.21:9999']
+      replacement: host.docker.internal:9115

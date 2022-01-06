@@ -1,5 +1,4 @@
 #!/bin/bash
-#Variables
 CONTAINER=grafana
 CONTAINER_NAME=grafana_grafana
 SERVICE=grafana
