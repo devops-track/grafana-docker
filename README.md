@@ -1,4 +1,4 @@
-# Serviços
+# Serviços em execução no docker-compose
 - Grafana
 - Prometheus
 - MYSQL
@@ -7,13 +7,23 @@
 - Telegraf
 - Node-Exporter
 - Cadvisor
-- BlackpExporter
+- Black-Exporter
 # Dependências
 - Docker
 - Git
 # Build
 Para executar todos os serviços é apenas seguir os seguintes comandos:
 
-``` git clone https://github.com/robertasolimandonofreo/grafana-docker.git ```
+``` git clone htps://github.com/robertasolimandonofreo/grafana-docker.git ```
+
 ``` cd grafana-docker ```
-``` docker-compose up --build```
+
+``` docker-compose up --build ```
+
+# Logins
+## Grafana
+- admin
+- Ob9jupho
+## InfluxDB
+- telegraf
+- telegraf
