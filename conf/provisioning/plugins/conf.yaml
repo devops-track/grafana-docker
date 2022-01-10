@@ -4,7 +4,3 @@ apps:
     - type: alexanderzobnin-zabbix-app
       org_name: Main Org.
       disabled: false
-
-    - type: ddurieux-glpi-app
-      org_name: Main Org.
-      disabled: false
